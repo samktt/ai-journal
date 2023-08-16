@@ -4,22 +4,22 @@ import { StyleSheet, Text, View } from "react-native";
 import ListButton from "./ListButton";
 
 const Categories = () => {
-  const categoryTitles = [
-    "Gratitude",
-    "Work",
-    "Family",
-    "Friends",
-    "Health",
-    "Spirituality",
-    "Fun",
-    "Other",
+  const categoryData = [
+    { title: "Gratitude", emoji: "😊" },
+    { title: "Work", emoji: "💼" },
+    { title: "Family", emoji: "👨‍👩‍👦" },
+    { title: "Friends", emoji: "👫" },
+    { title: "Health", emoji: "🏃‍♂️" },
+    { title: "Spirituality", emoji: "🕊️" },
+    { title: "Fun", emoji: "🎉" },
+    { title: "Other", emoji: "🔮" },
   ];
 
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Categories</Text>
-      {categoryTitles.map((title) => (
-        <ListButton key={title} title={title} />
+      {categoryData.map(({ title, emoji }) => (
+        <ListButton key={title} title={title} emoji={emoji} />
       ))}
     </View>
   );
