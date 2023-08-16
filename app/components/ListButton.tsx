@@ -13,12 +13,14 @@ import colors from "../config/colors";
 
 interface ListButtonProps extends TouchableOpacityProps {
   title: string;
+  emoji: string;
   backgroundColor?: keyof typeof colors;
   color?: keyof typeof colors;
 }
 
 function ListButton({
   title,
+  emoji = "👍",
   onPress,
   backgroundColor = "white",
   color = "primary",
@@ -29,7 +31,11 @@ function ListButton({
       onPress={onPress}
     >
       <View style={styles.container}>
-        <Text style={[styles.text, { color: colors[color] }]}>{title}</Text>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Text style={[styles.emoji]}>{emoji}</Text>
+          <Text style={[styles.text, { color: colors[color] }]}>{title}</Text>
+        </View>
+
         <MaterialCommunityIcons
           name="chevron-right"
           color={colors[color]}
@@ -59,5 +65,10 @@ const styles = StyleSheet.create({
   text: {
     color: colors.white,
     fontSize: 18,
+  },
+  emoji: {
+    color: colors.white,
+    fontSize: 25,
+    marginRight: 10,
   },
 });
